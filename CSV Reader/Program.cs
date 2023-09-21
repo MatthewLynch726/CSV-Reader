@@ -8,19 +8,20 @@ namespace CSV_Reader
         static void Main(string[] args)
         {
 
-            using (var reader = new StreamReader(@"C:\Test\CSV-File.csv"))
+            using (var reader = new StreamReader(@"C:\Test\iContracts-Test2.csv"))
             {
                 Console.WriteLine("Test!");
                 List<string> listA = new List<string>();
                 while (!reader.EndOfStream)
                 {
                     var line = reader.ReadLine();
-                    var values = line.Split(';');
+                    var values = line.Split(',');
 
                     foreach (var i in values)
                     {
                         Console.WriteLine(i);
                     }
+                    Console.WriteLine("End of Row");
                 }
             }
         }
