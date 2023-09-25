@@ -26,18 +26,6 @@ namespace WebApplication1.Controllers
 
             Console.WriteLine("Test!");
 
-            using (var streamReader = new StreamReader(UploadedFile.OpenReadStream()))
-            {
-                string line;
-                while ((line = streamReader.ReadLine()) != null)
-                {
-                    // Process each line from the CSV.
-                    // For a real CSV, you'd split by commas, handle quotations, etc. 
-                    // or use a library like CsvHelper to simplify the parsing.
-                }
-            }
-
-
 
             return RedirectToAction("Index");
 
