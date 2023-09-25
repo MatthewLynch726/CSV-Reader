@@ -2,7 +2,7 @@
 {
     public class CSV
     {
-        public int Id { get; set; }
+        public int ContractId { get; set; }
         public string Name { get; set; }
         public string Value { get; set; }
     }
