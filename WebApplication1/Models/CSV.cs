@@ -1,8 +1,10 @@
-﻿namespace WebApplication1.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApplication1.Models
 {
     public class CSV
     {
-        public int Id { get; set; }
+        [Key]
         public string ContractId { get; set; }
         public string Name { get; set; }
         public string Value { get; set; }
