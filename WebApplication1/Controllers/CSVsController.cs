@@ -1,7 +1,4 @@
-﻿using CsvHelper;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Globalization;
+﻿using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Data;
 using WebApplication1.Models;
 
@@ -24,7 +21,7 @@ namespace WebApplication1.Controllers
             return View(objCategoryList);
         }
 
-       /* [HttpPost]
+        [HttpPost]
         public IActionResult Upload(IFormFile UploadedFile) {
 
             Console.WriteLine("Test!");
@@ -39,25 +36,11 @@ namespace WebApplication1.Controllers
                     // or use a library like CsvHelper to simplify the parsing.
                 }
             }
-            return RedirectToAction("Index");
-        }*/
 
-        [HttpPost]
-        public IActionResult Upload(IFormFile UploadedFile)
-        {
-            var records = new List<CSV>();
 
-            using (var streamReader = new StreamReader(UploadedFile.OpenReadStream()))
-            using (var csvReader = new CsvReader(streamReader, CultureInfo.InvariantCulture))
-            {
-                records = csvReader.GetRecords<CSV>().ToList();
-            }
-
-            // Save the records to the database
-            _db.CSVs.AddRange(records);
-            _db.SaveChanges();
 
             return RedirectToAction("Index");
+
         }
 
 
